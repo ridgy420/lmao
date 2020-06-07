@@ -13,3 +13,10 @@ Run server via
 ```
 ???
 ```
+
+## Developing
+
+Install new package and save it to `requirements.txt` via
+```
+pip3 install django && pip3 freeze > requirements.txt
+```
