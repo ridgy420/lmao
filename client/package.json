@@ -4,6 +4,7 @@
   "description": "The client is a bundle of html/css/js code that will interact with the server via its REST API.",
   "main": "index.js",
   "scripts": {
+    "open": "open ./index.html",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
