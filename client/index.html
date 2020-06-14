@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>lmao</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    h1, p {
+      text-align: center;
+    }
+  </style>
+  <script>
+    fetch('http://localhost:8000/api/root')
+      .then(res => res.text())
+      .then(res => {
+        console.log(res);
+        const responseContainer = document.createElement('p');
+        responseContainer.innerHTML = `Server says: <i>${res}</i>`;
+        document.body.appendChild(responseContainer);
+
+        const respondButton = document.createElement('button');
+        respondButton.innerHTML = 'Say Hello Back?';
+        respondButton.onclick = postHelloBack.bind(respondButton);
+        document.body.appendChild(respondButton);
+      });
+    
+    function postHelloBack() {
+      fetch('http://localhost:8000/api/root', {
+        method: 'POST',
+        body: 'Check out this text',
+      })
+        .then(
+          res => console.log(res),
+          err => console.log(err),
+        );
+    }
+  </script>
+</head>
+<body>
+  <h1>LMAO</h1>
+  <p>we're back.</p>
+</body>
+</html>
