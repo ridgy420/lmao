@@ -100,27 +100,36 @@ class Data extends Component {
 class DataSelect extends Component {
   constructor(props) {
     super(props);
-    this.state = { value: "UMI" };
+    this.state = { key: -1, value: "Select" };
     this.handleChange = this.handleChange.bind(this);
   }
 
   handleChange(event) {
-    this.setState({ value: event.target.value });
+    this.setState({ key: event.target.id, value: event.target.value });
+    console.log(this.state);
   }
 
   render() {
     let artists = this.props.music.map((music) => (
-      <option key={music.artist} value={music.artist}>
+      <option key={music.index} value={music.artist}>
         {music.artist}
       </option>
     ));
-
     return (
       <div>
         <select value={this.state.value} onChange={this.handleChange}>
           {artists}
         </select>
-        <h3>{this.state.value}</h3>
+        {/* <table>
+          <tr>
+            <th>Artist</th>
+            <th>Monthly Listeners</th>
+          </tr>
+          <tr>
+            <td>{this.props.music[1].artist}</td>
+            <td>{this.props.music[1].listeners}</td>
+          </tr>
+        </table> */}
       </div>
     );
   }
